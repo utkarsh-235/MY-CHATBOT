@@ -12,7 +12,7 @@ import json
 #process starts----------------------------------------------------------------------->
 
 lemmatizer = WordNetLemmatizer()
-intents = json.loads(open('C:\Simplilearn\Python\Python projects\chatbot using python\chatbot\intents.json').read())
+intents = json.loads(open('C:\Users\agarw\Desktop\chatbot\response.json').read())
 
 words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
@@ -45,10 +45,10 @@ def predict_class (sentence):
         return_list.append({'intent': classes [r[0]], 'probability': str(r[1])})
     return return_list
 
-def get_response(intents_list, intents_json):
-    tag = intents_list[0]['intent']
-    list_of_intents = intents_json['intents']
-    for i in list_of_intents:
+def get_response(response_list, response_json):
+    tag = response_list[0]['response']
+    list_of_response = response_json['response']
+    for i in list_of_response:
         if i['tag'] == tag:
             result = random.choice (i['responses'])
             break
@@ -59,6 +59,6 @@ print("GO! Bot is running!")
 while True:
     message = input("")
     ints = predict_class (message)
-    res = get_response (ints, intents)
+    res = get_response (ints, response)
     print (res)
     
