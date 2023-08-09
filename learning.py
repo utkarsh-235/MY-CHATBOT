@@ -12,7 +12,7 @@ import tensorflow as tf
 #loading data -------------------------------------------------------------------------------->
 lemmatizer = WordNetLemmatizer()
 
-intents = json.loads(open('C:\Users\agarw\Desktop\chatbot\response.json').read())
+response = json.loads(open('C:\Users\agarw\Desktop\chatbot\response.json').read())
 
 words = []
 classes = []
